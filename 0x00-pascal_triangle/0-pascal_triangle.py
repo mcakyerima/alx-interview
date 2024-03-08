@@ -19,7 +19,7 @@ def pascal_triangle(n):
         ValueError: If n is not a positive integer.
     """
     triangle = []
-    
+
     if not isinstance(n, int) or n <= 0:
         return triangle
 
@@ -33,5 +33,3 @@ def pascal_triangle(n):
         triangle.append(line)
 
     return triangle
-
-
