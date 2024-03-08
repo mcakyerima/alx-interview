@@ -3,6 +3,7 @@
 pascal_triangle.py: A module for working with Pascal's triangle.
 """
 
+
 def pascal_triangle(n):
     """
     Generates Pascal's triangle up to the nth row.
@@ -20,7 +21,7 @@ def pascal_triangle(n):
     triangle = []
     
     if not isinstance(n, int) or n <= 0:
-        raise ValueError("n must be a positive integer")
+        return triangle
 
     for i in range(n):
         line = []
@@ -32,4 +33,5 @@ def pascal_triangle(n):
         triangle.append(line)
 
     return triangle
+
 
