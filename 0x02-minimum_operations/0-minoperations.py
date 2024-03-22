@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 '''
-This module contains a function to compute the fewest number of operations
-needed to result in exactly n H characters.
+This module contains a function to compute the fewest number of
+operations needed to result in exactly n H characters.
 '''
 
 
 def minOperations(n):
     '''
-    Computes the fewest number of operations needed to result in exactly n H
-    characters.
+    Computes the fewest number of operations needed to result in
+    exactly n H characters.
 
     Args:
         n (int): The desired number of H characters.
@@ -16,7 +16,6 @@ def minOperations(n):
     Returns:
         int: The minimum number of operations needed.
     '''
-
     if not isinstance(n, int):
         return 0
 
@@ -39,9 +38,11 @@ def minOperations(n):
 
     return operations_count
 
+
 if __name__ == '__main__':
     n = 4
     print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
 
     n = 12
     print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+
