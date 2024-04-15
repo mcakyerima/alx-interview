@@ -40,6 +40,7 @@ class NQueen:
                     # All queens have been placed (found a valid solution)
                     solution = []
                     for j in range(1, self.n + 1):
+                        # Append the position of the queen in a 0-indexed format
                         solution.append([j - 1, self.x[j] - 1])
                     self.res.append(solution)
                 else:
