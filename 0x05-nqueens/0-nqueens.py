@@ -19,6 +19,7 @@ Usage:
 where N is the size of the chessboard (number of queens).
 """
 
+
 import sys
 
 
