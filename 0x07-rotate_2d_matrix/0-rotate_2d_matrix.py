@@ -1,24 +1,18 @@
 #!/usr/bin/python3
-
 """
-Rotate a 2D Matrix 90 Degrees Clockwise
-=========================================
-
-This module provides a function to rotate a 2D matrix 90 degrees clockwise.
+Rotate 2D Matrix
 """
 
-def rotate_matrix_clockwise(matrix: list) -> None:
+
+def rotate_2d_matrix(matrix):
     """
-    Rotate a 2D matrix 90 degrees clockwise in-place.
-
-    Args:
-        matrix (list): A 2D list of integers representing the matrix to be rotated.
-
-    Returns:
-        None
+    Rotates a 2D matrix 90 degrees clockwise
     """
-    num_rows = len(matrix[0])
-
-    for row_index in range(num_rows - 1, -1, -1):
-        for col_index in range(0, num_rows):
-            matrix[col_index].append(matrix[row_index].pop(0))
+    n = len(matrix)
+    for i in range(n // 2):
+        for j in range(i, n - i - 1):
+            temp = matrix[i][j]
+            matrix[i][j] = matrix[n - 1 - j][i]
+            matrix[n - 1 - j][i] = matrix[n - 1 - i][n - 1 - j]
+            matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i]
+            matrix[j][n - 1 - i] = temp
