@@ -3,7 +3,6 @@
 Module for generating change
 """
 
-
 def makeChange(coins, total):
     """
     Generate the minimum number of coins needed to reach a total amount.
@@ -13,21 +12,19 @@ def makeChange(coins, total):
         total (int): The target total amount.
 
     Returns:
-        int: The minimum number of coins needed to reach the total.
+        int: The minimum number of coins needed to reach the total. 
              Returns -1 if the total cannot be reached with the given coins.
     """
     if total <= 0:
         return 0
 
-    # Sort coins in descending order for greedy approach
-    coins.sort(reverse=True)
-    # Counter for the total number of coins used
-    coins_count = 0
+    coins.sort(reverse=True)  # Sort coins in descending order for greedy approach
+    coins_count = 0  # Counter for the total number of coins used
 
     # Iterate through each coin denomination
     for coin in coins:
-        # Counter for the number of coins of the current denomination
-	coin_count_for_denomination = 0
+        coin_count_for_denomination = 0  # Counter for the number of coins of the current denomination
+
         # Greedily use as many coins of the current denomination as possible
         while total >= coin:
             total -= coin
