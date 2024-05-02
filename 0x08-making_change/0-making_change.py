@@ -13,9 +13,10 @@ def makeChange(coins, total):
         total (int): The target total amount.
 
     Returns:
-        int: The minimum number of coins needed to reach the total.
+        int: The minimum number of coins needed to reach the total. 
              Returns -1 if the total cannot be reached with the given coins.
     """
+    # Check if the total amount is 0 or less
     if total <= 0:
         return 0
 
@@ -27,7 +28,8 @@ def makeChange(coins, total):
     # Iterate through each coin denomination
     for coin in coins:
         # Counter for the number of coins of the current denomination
-	coin_count_for_denomination = 0
+        coin_count_for_denomination = 0
+
         # Greedily use as many coins of the current denomination as possible
         while total >= coin:
             total -= coin
