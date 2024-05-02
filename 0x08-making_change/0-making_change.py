@@ -1,29 +1,40 @@
 #!/usr/bin/python3
 """
-Module for makeChange function
+Module for generating change
 """
-
 
 def makeChange(coins, total):
     """
-    Determines the fewest number of coins needed to meet a given amount total.
+    Generate the minimum number of coins needed to reach a total amount.
+
     Args:
-        coins (list): List of the values of the coins in your possession.
-        total (int): The total amount to be met.
+        coins (list): List of available coin denominations.
+        total (int): The target total amount.
+
     Returns:
-        int: Fewest number of coins needed to meet total. If total is 0 or less, returns 0.
-        If total cannot be met by any number of coins you have, returns -1.
+        int: The minimum number of coins needed to reach the total. 
+             Returns -1 if the total cannot be reached with the given coins.
     """
     if total <= 0:
         return 0
 
-    coins.sort()  # Sort coins in ascending order
+    coins.sort(reverse=True)  # Sort coins in descending order for greedy approach
+    coins_count = 0  # Counter for the total number of coins used
 
-    dp = [float('inf')] * (total + 1)
-    dp[0] = 0
-
+    # Iterate through each coin denomination
     for coin in coins:
-        for amount in range(coin, total + 1):
-            dp[amount] = min(dp[amount], dp[amount - coin] + 1)
+        coin_count_for_denomination = 0  # Counter for the number of coins of the current denomination
 
-    return dp[total] if dp[total] != float('inf') else -1
+        # Greedily use as many coins of the current denomination as possible
+        while total >= coin:
+            total -= coin
+            coin_count_for_denomination += 1
+
+        coins_count += coin_count_for_denomination
+
+        # If the total amount is reached, return the total number of coins used
+        if total == 0:
+            return coins_count
+
+    # If the total amount cannot be reached, return -1
+    return -1
